@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 800px;
+            height: 800px;
+        }
+
+        td {
+            width: 100px;
+            height: 100px;
+            font-size: 4rem;
+            font-weight: 500;
+            font-family: Arial, Helvetica, sans-serif;
+            border: 2px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <table></table>
+
+    <script>
+        const table = document.querySelector("table");
+        let kod = ""
+
+        const xox = () => {
+            for (let i = 0; i < 3; i++) {
+                kod += "<tr>"
+                for (let j = 0; j < 3; j++) {
+                    kod += `<td id="c${i}${j}" onclick="writexox(${i}, ${j})"></td>`
+                }
+                kod += "</tr>"
+            }
+            table.innerHTML = kod
+        }
+        xox()
+
+
+        let flag = false
+        const writexox = (i, j) => {
+            const xana = document.querySelector(`#c${i}${j}`)
+            flag = !flag
+            xana.innerHTML = flag ? "X" : "O"
+
+        }
+    </script>
+</body>
+
+</html>
